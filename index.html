@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Volodymyr | Web Developer</title>
+  <meta name="description" content="Volodymyr — Web Developer. Minimal dark portfolio showcasing AI-assisted web projects (HTML, CSS, JS)." />
+  <style>
+    /* -------------------------
+       Minimal Dark Portfolio
+       Single-file (HTML + CSS + JS)
+       ------------------------- */
+    :root{
+      --bg:#0b0d0f;
+      --card:#0f1113;
+      --muted:#9aa3ad;
+      --accent:#7c9cff;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --maxw:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1000px 400px at 10% 10%, rgba(124,156,255,0.03), transparent), var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      display:flex;justify-content:center;padding:40px 20px;
+    }
+    .container{width:100%;max-width:var(--maxw)}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;
+    }
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#55e6c1);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#061124;font-size:18px;box-shadow:0 6px 18px rgba(124,156,255,0.06);
+    }
+    h1{margin:0;font-size:20px;letter-spacing:0.2px}
+    .subtitle{font-size:13px;color:var(--muted);margin-top:4px}
+    nav{display:flex;gap:14px}
+    nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:8px;border-radius:8px}
+    nav a:hover{color:var(--accent);background:var(--glass)}
+
+    main{display:grid;grid-template-columns:1fr 360px;gap:28px}
+
+    /* Left column */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:22px;border-radius:var(--radius);backdrop-filter: blur(6px);box-shadow: 0 6px 24px rgba(2,6,23,0.6);}
+
+    .hero{display:flex;flex-direction:column;gap:12px;padding:18px}
+    .hero h2{margin:0;font-size:28px}
+    .hero p{margin:0;color:var(--muted)}
+    .cta{margin-top:12px;display:flex;gap:12px}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;color:#dfe9ff;text-decoration:none;font-weight:600}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#5ef0d4);color:#071026;border:none;box-shadow:0 8px 28px rgba(124,156,255,0.08)}
+
+    /* Projects */
+    .projects{margin-top:18px;display:grid;gap:14px}
+    .proj{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
+    .proj .thumb{width:110px;height:70px;border-radius:8px;background:#091014;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px}
+    .proj .meta{flex:1}
+    .proj h4{margin:0;font-size:15px}
+    .proj p{margin:4px 0 0 0;color:var(--muted);font-size:13px}
+    .proj a{color:var(--accent);font-weight:600;text-decoration:none}
+
+    /* Right column */
+    aside{position:sticky;top:24px;height:fit-content}
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:13px;color:var(--muted)}
+
+    .contact-form{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px;border-radius:8px;color:inherit}
+    textarea{min-height:100px;resize:vertical}
+    .muted{color:var(--muted);font-size:13px}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* highlight */
+    .highlight {
+      animation: highlight-section 1s ease;
+    }
+
+    @keyframes highlight-section {
+      0% {
+        box-shadow: 0 0 20px #55e6c1;
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+      100% {
+        box-shadow: none;
+        background-color: transparent;
+      }
+    }
+
+    /* responsive */
+    @media (max-width:940px){main{grid-template-columns:1fr}aside{position:relative;order:2}header{flex-direction:column;align-items:flex-start;gap:12px}}
+
+    /* small animations */
+    .fade-up{transform:translateY(10px);opacity:0;transition:all 480ms cubic-bezier(.2,.9,.3,1)}
+    .in-view{transform:none;opacity:1}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">VP</div>
+        <div>
+          <h1>Portfolio</h1>
+          <div class="subtitle">Volodymyr | Web Developer — AI-assisted websites • HTML • CSS • JS</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <div class="card hero fade-up" id="about">
+          <h2>Hello — I'm Volodymyr</h2>
+          <p>I create minimal, fast and accessible websites using modern web technologies and AI assistants (ChatGPT, Framer AI, Durable). I focus on landing pages, portfolios and business pages that convert visitors into customers.</p>
+          <div class="cta">
+            <a class="btn primary" href="#contact">Hire me</a>
+            <a class="btn" href="#projects">View projects</a>
+          </div>
+        </div>
+
+        <div class="card projects-section fade-up" style="margin-top:18px" id="projects">
+          <h3 style="margin:0 0 12px 0">Selected Projects</h3>
+
+          <!-- Project 1: user-provided cafe site -->
+          <article class="proj">
+            <div class="thumb">Cafe</div>
+            <div class="meta">
+              <h4>Cafe Landing — SiteforCafe</h4>
+              <p class="muted">AI-assisted build: responsive landing page, menu, contact form.</p>
+            </div>
+            <div>
+              <a href="https://siteforcafe7.webnode.page" target="_blank" rel="noopener">Open</a>
+            </div>
+          </article>
+
+          <!-- Project 2 (example) -->
+          <article class="proj">
+            <div class="thumb">Photo</div>
+            <div class="meta">
+              <h4>PhotoPort — Photographer Portfolio</h4>
+              <p class="muted">Gallery, lightbox, and contact form. Built with HTML/CSS/JS and AI-generated layout.</p>
+            </div>
+            <div>
+              <a href="#" onclick="openDemo(event,'/demo/photort')">Demo</a>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="proj">
+            <div class="thumb">Startup</div>
+            <div class="meta">
+              <h4>Launch — Startup Landing</h4>
+              <p class="muted">Fast marketing landing with sections for features, pricing and signup. Optimized for conversion.</p>
+            </div>
+            <div>
+              <a href="#" onclick="openDemo(event,'/demo/launch')">Demo</a>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="proj">
+            <div class="thumb">Shop</div>
+            <div class="meta">
+              <h4>MiniShop — E‑shop mockup</h4>
+              <p class="muted">Small product catalogue with cart preview. Great for testing e-commerce ideas.</p>
+            </div>
+            <div>
+              <a href="#" onclick="openDemo(event,'/demo/minishop')">Demo</a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="card fade-up" style="margin-top:18px;padding:18px">
+          <h3 style="margin:0 0 10px 0">About this portfolio</h3>
+          <p class="muted">This site is a minimal, dark-themed single-page template. It demonstrates structure you can reuse for your projects. All project pages are deployable to GitHub Pages / Netlify / Vercel.</p>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card" id="skills">
+          <h4 style="margin:0 0 10px 0">Skills</h4>
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Responsive</span>
+            <span class="skill">AI-assisted dev</span>
+            <span class="skill">Git</span>
+            <span class="skill">Netlify</span>
+          </div>
+
+          <div style="margin-top:14px">
+            <h4 class="margin:0 0 10px 0">Contact</h4>
+            <div style="margin-top:8px;display:flex;gap:8px">
+              <a class="btn" href="mailto:VolodymyrPetrukDev@gmail.com">Email</a>
+              <a class="btn" href="https://www.fiverr.com/" target="_blank">Fiverr</a>
+              <a class="btn" href="https://github.com/PetrukVovaAncientRus" target="_blank">GitHub</a>
+            </div>
+          </div>
+
+          <form id="contact" class="contact-form" onsubmit="sendMessage(event)">
+            <input id="name" placeholder="Your name" required />
+            <input id="email" placeholder="Your email" required />
+            <textarea id="message" placeholder="Message (project brief)" required></textarea>
+            <button class="btn primary" type="submit">Send</button>
+            <div id="note" class="muted" style="margin-top:6px;font-size:13px">Or email: <strong>VolodymyrPetrukDev@gmail.com</strong></div>
+          </form>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Volodymyr — Web Developer • Built with AI & code
+    </footer>
+  </div>
+
+  <script>
+    //Highlight
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const targetId = link.getAttribute('href').substring(1);
+        const section = document.getElementById(targetId);
+        if (section) {
+          section.classList.remove('highlight');
+          void section.offsetWidth;
+          section.classList.add('highlight');
+          setTimeout(() => section.classList.remove('highlight'), 1000);
+        }
+      });
+    });
+
+    // Small JS: scroll animations + contact handler + demo placeholders
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // intersection observer for fade-up
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('in-view');
+      });
+    },{threshold:0.12});
+    document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+    function sendMessage(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name||!email||!message) return alert('Please fill all fields.');
+      // Simple mailto fallback (works without backend)
+      const subject = encodeURIComponent('Website inquiry from ' + name);
+      const body = encodeURIComponent(message + '\n\nContact: ' + name + ' <' + email + '>');
+      window.location.href = 'mailto:VolodymyrPetrukDev@gmail.com?subject=' + subject + '&body=' + body;
+    }
+
+    function openDemo(e,path){
+      e.preventDefault();
+      alert('Demo placeholder. Replace link with your deployed demo URL.');
+    }
+  </script>
+</body>
+</html>
