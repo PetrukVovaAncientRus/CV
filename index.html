@@ -59,6 +59,7 @@
     .cta{margin-top:12px;display:flex;gap:12px}
     .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;color:#dfe9ff;text-decoration:none;font-weight:600}
     .btn.primary{background:linear-gradient(90deg,var(--accent),#5ef0d4);color:#071026;border:none;box-shadow:0 8px 28px rgba(124,156,255,0.08)}
+    .btn.primary:hover{transform: scale(1.02);transition: transform 0.5s ease;}
 
     /* Projects */
     .projects{margin-top:18px;display:grid;gap:14px}
@@ -230,7 +231,7 @@
       © <span id="year"></span> Rin — Web Developer • Built with AI & code
     </footer>
   </div>
-
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     //Highlight
     document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -249,6 +250,10 @@
     // Small JS: scroll animations + contact handler + demo placeholders
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    emailjs.init({
+      publicKey: "vZHaE9BupmtxLWEvF" // вставь свой public key из EmailJS Dashboard
+    });
+
     // intersection observer for fade-up
     const obs = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
@@ -257,22 +262,37 @@
     },{threshold:0.12});
     document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
-    function sendMessage(e){
+    async function sendMessage(e){
       e.preventDefault();
+
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
-      if(!name||!email||!message) return alert('Please fill all fields.');
-      // Simple mailto fallback (works without backend)
-      const subject = encodeURIComponent('Website inquiry from ' + name);
-      const body = encodeURIComponent(message + '\n\nContact: ' + name + ' <' + email + '>');
-      window.location.href = 'mailto:VolodymyrPetrukDev@gmail.com?subject=' + subject + '&body=' + body;
-    }
 
-    function openDemo(e,path){
-      e.preventDefault();
-      alert('Demo placeholder. Replace link with your deployed demo URL.');
-    }
+      if(!name || !email || !message){
+        alert("Please fill all fields.");
+        return;
+      }
+
+      try {
+        // Отправляем через EmailJS
+        const result = await emailjs.send("service_6iyzbvk", "template_kk3t59a", {
+          from_name: name,
+          from_email: email,
+          message: message
+        });
+
+      alert("✅ Message sent successfully!");
+      document.getElementById('contact').reset();
+
+      } catch (error) {
+        console.error(error);
+        alert("❌ Failed to send message. Please try again.");
+      }
+    }   
+
+    emailjs.init({ publicKey: "vZHaE9BupmtxLWEvF" })
+    emailjs.send("service_6iyzbvk", "template_kk3t59a")
   </script>
 </body>
 </html>
