@@ -164,13 +164,13 @@
 
           <!-- Project 3 -->
           <article class="proj">
-            <div class="thumb">Startup</div>
+            <div class="thumb">AI Startup</div>
             <div class="meta">
-              <h4>Launch — Startup Landing</h4>
-              <p class="muted">Fast marketing landing with sections for features, pricing and signup. Optimized for conversion.</p>
+              <h4>NeuroBlocks — Startup AI tool</h4>
+              <p class="muted">NeuroBlocks is an AI block builder for startups looking to quickly generate ideas.</p>
             </div>
             <div>
-              <a href="#" onclick="openDemo(event,'/demo/launch')">Demo</a>
+              <a href="http://strong-cobbler-92665e.netlify.app" target="_blank" rel="noopener">Open</a>
             </div>
           </article>
 
@@ -262,6 +262,10 @@
     },{threshold:0.12});
     document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
+    emailjs.init({
+      publicKey: "vZHaE9BupmtxLWEvF"
+    });
+
     async function sendMessage(e){
       e.preventDefault();
 
@@ -275,24 +279,20 @@
       }
 
       try {
-        // Отправляем через EmailJS
-        const result = await emailjs.send("service_6iyzbvk", "template_kk3t59a", {
+        await emailjs.send("service_6iyzbvk", "template_kk3t59a", {
           from_name: name,
           from_email: email,
           message: message
         });
 
-      alert("✅ Message sent successfully!");
-      document.getElementById('contact').reset();
+        alert("✅ Message sent successfully!");
+        document.getElementById('contact').reset();
 
       } catch (error) {
         console.error(error);
         alert("❌ Failed to send message. Please try again.");
       }
-    }   
-
-    emailjs.init({ publicKey: "vZHaE9BupmtxLWEvF" })
-    emailjs.send("service_6iyzbvk", "template_kk3t59a")
+    }
   </script>
 </body>
 </html>
