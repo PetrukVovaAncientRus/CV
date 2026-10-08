@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Volodymyr Petruk — Full-stack Developer</title>
-  <meta name="description" content="Volodymyr Petruk — Full-stack Developer portfolio showcasing web applications, client solutions, and AI-assisted web tools." />
+  <meta name="description"
+    content="Volodymyr Petruk — Full-stack Developer portfolio showcasing web applications, client solutions, and AI-assisted web tools." />
   <style>
     :root {
       --bg: #090b0e;
@@ -21,8 +23,14 @@
       color-scheme: dark;
     }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
 
     body {
       margin: 0;
@@ -35,7 +43,10 @@
       padding: 40px 20px;
     }
 
-    .container { width: 100%; max-width: var(--maxw); }
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+    }
 
     header {
       display: flex;
@@ -46,20 +57,44 @@
       border-bottom: 1px solid var(--card-border);
     }
 
-    .brand { display: flex; gap: 16px; align-items: center; }
+    .brand {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
     .logo {
-      width: 52px; height: 52px;
+      width: 52px;
+      height: 52px;
       border-radius: 12px;
       background: linear-gradient(135deg, var(--accent), var(--teal));
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; color: #0f172a; font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 18px;
       box-shadow: 0 4px 20px var(--accent-glow);
     }
 
-    h1 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.2px; }
-    .subtitle { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
 
-    nav { display: flex; gap: 8px; }
+    .subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+    }
+
     nav a {
       color: var(--muted);
       text-decoration: none;
@@ -69,9 +104,17 @@
       border-radius: 8px;
       transition: all 0.2s ease;
     }
-    nav a:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
 
-    main { display: grid; grid-template-columns: 1fr 360px; gap: 32px; }
+    nav a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 32px;
+    }
 
     .card {
       background: var(--card-bg);
@@ -82,11 +125,32 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
-    .hero { display: flex; flex-direction: column; gap: 14px; }
-    .hero h2 { margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -0.5px; }
-    .hero p { margin: 0; color: var(--muted); font-size: 15px; }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
-    .cta { margin-top: 10px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero h2 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .cta {
+      margin-top: 10px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -102,16 +166,31 @@
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
     }
-    .btn:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); transform: translateY(-1px); }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-1px);
+    }
+
     .btn.primary {
       background: linear-gradient(135deg, var(--accent), #4f46e5);
       color: #ffffff;
       border: none;
       box-shadow: 0 4px 20px var(--accent-glow);
     }
-    .btn.primary:hover { opacity: 0.95; transform: translateY(-1px); }
 
-    .projects { margin-top: 24px; display: grid; gap: 16px; }
+    .btn.primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .projects {
+      margin-top: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
     .proj {
       display: flex;
       justify-content: space-between;
@@ -122,7 +201,12 @@
       border: 1px solid var(--card-border);
       transition: border-color 0.2s ease, background 0.2s ease;
     }
-    .proj:hover { border-color: rgba(99, 102, 241, 0.4); background: rgba(255, 255, 255, 0.03); }
+
+    .proj:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
     .proj-badge {
       display: inline-block;
       padding: 2px 8px;
@@ -133,11 +217,34 @@
       color: #a5b4fc;
       margin-bottom: 6px;
     }
-    .proj h4 { margin: 0; font-size: 16px; font-weight: 600; }
-    .proj p { margin: 6px 0 0 0; color: var(--muted); font-size: 13.5px; }
 
-    aside { position: sticky; top: 24px; height: fit-content; display: flex; flex-direction: column; gap: 20px; }
-    .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .proj h4 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .proj p {
+      margin: 6px 0 0 0;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    aside {
+      position: sticky;
+      top: 24px;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     .skill {
       padding: 6px 12px;
       border-radius: 8px;
@@ -147,8 +254,15 @@
       color: var(--muted);
     }
 
-    .contact-form { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
-    input, textarea {
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    input,
+    textarea {
       background: rgba(0, 0, 0, 0.2);
       border: 1px solid var(--card-border);
       padding: 12px;
@@ -157,27 +271,68 @@
       font-family: inherit;
       font-size: 14px;
     }
-    input:focus, textarea:focus { outline: none; border-color: var(--accent); }
-    textarea { min-height: 100px; resize: vertical; }
 
-    footer { margin-top: 48px; color: var(--muted); font-size: 13px; text-align: center; }
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
 
-    .highlight { animation: highlight-section 1s ease; }
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    footer {
+      margin-top: 48px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .highlight {
+      animation: highlight-section 1s ease;
+    }
+
     @keyframes highlight-section {
-      0% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
-      100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+      0% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+      }
+
+      100% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
     }
 
     @media (max-width: 940px) {
-      main { grid-template-columns: 1fr; }
-      aside { position: relative; }
-      header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: relative;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
     }
 
-    .fade-up { transform: translateY(10px); opacity: 0; transition: all 480ms cubic-bezier(.2, .9, .3, 1); }
-    .in-view { transform: none; opacity: 1; }
+    .fade-up {
+      transform: translateY(10px);
+      opacity: 0;
+      transition: all 480ms cubic-bezier(.2, .9, .3, 1);
+    }
+
+    .in-view {
+      transform: none;
+      opacity: 1;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <header>
@@ -200,7 +355,8 @@
       <section>
         <div class="card hero fade-up" id="about">
           <h2>Hello, I'm Volodymyr</h2>
-          <p>I build robust, modern, and accessible web applications. Focusing on scalable backend structures, intuitive frontend UI, and efficient software architecture.</p>
+          <p>I build robust, modern, and accessible web applications. Focusing on scalable backend structures, intuitive
+            frontend UI, and efficient software architecture.</p>
           <div class="cta">
             <a class="btn primary" href="#contact">Get in Touch</a>
             <a class="btn" href="#projects">View Projects</a>
@@ -216,10 +372,11 @@
               <div>
                 <span class="proj-badge">Client Project</span>
                 <h4>SKOP BYGG AS Website</h4>
-                <p>Full-stack web platform for a Norwegian construction company featuring service catalog, SEO optimization, and responsive design.</p>
+                <p>Full-stack web platform for a Norwegian construction company featuring service catalog, SEO
+                  optimization, and responsive design.</p>
               </div>
               <div>
-                <a class="btn" href="https://github.com/PetrukVovaAncientRus/skopp-bygg-website" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn" href="https://skop-bygg-as.vercel.app/" target="_blank" rel="noopener">GitHub</a>
               </div>
             </article>
 
@@ -228,10 +385,12 @@
               <div>
                 <span class="proj-badge">Frontend</span>
                 <h4>Emma Larson Portfolio</h4>
-                <p>Modern minimalist portfolio showcase featuring smooth layouts, interactive elements, and accessible UX.</p>
+                <p>Modern minimalist portfolio showcase featuring smooth layouts, interactive elements, and accessible
+                  UX.</p>
               </div>
               <div>
-                <a class="btn" href="https://github.com/PetrukVovaAncientRus/emma_larson_portfolio" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn" href="https://petrukvovaancientrus.github.io/emma-larson-portfolio/" target="_blank"
+                  rel="noopener">GitHub</a>
               </div>
             </article>
 
@@ -240,10 +399,11 @@
               <div>
                 <span class="proj-badge">Web App</span>
                 <h4>Momiji Sushi Skien</h4>
-                <p>Interactive restaurant website featuring menu displays, location info, and an intuitive user interface.</p>
+                <p>Interactive restaurant website featuring menu displays, location info, and an intuitive user
+                  interface.</p>
               </div>
               <div>
-                <a class="btn" href="https://github.com/PetrukVovaAncientRus/momiji-sushi-skien" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn" href="momiji-sushi-6rb9.vercel.app" target="_blank" rel="noopener">GitHub</a>
               </div>
             </article>
 
@@ -252,10 +412,12 @@
               <div>
                 <span class="proj-badge">AI Tool</span>
                 <h4>NeuroBlocks</h4>
-                <p>An innovative AI-assisted modular block builder application designed to streamline startup workflow and idea generation.</p>
+                <p>An innovative AI-assisted modular block builder application designed to streamline startup workflow
+                  and idea generation.</p>
               </div>
               <div>
-                <a class="btn" href="https://github.com/PetrukVovaAncientRus/NeuroBlocks" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn" href="https://petrukvovaancientrus.github.io/NeuroBlocks/" target="_blank"
+                  rel="noopener">GitHub</a>
               </div>
             </article>
 
@@ -267,11 +429,12 @@
         <div class="card" id="skills">
           <h4 style="margin: 0 0 12px 0; font-size: 16px;">Skills & Technologies</h4>
           <div class="skills">
+            <span class="skill">C/C++</span>
+            <span class="skill">Java</span>
+            <span class="skill">SQL</span>
             <span class="skill">TypeScript</span>
             <span class="skill">JavaScript</span>
-            <span class="skill">NestJS</span>
-            <span class="skill">Node.js</span>
-            <span class="skill">React / Next.js</span>
+            <span class="skill">React</span>
             <span class="skill">PostgreSQL</span>
             <span class="skill">HTML/CSS</span>
             <span class="skill">Git</span>
@@ -282,7 +445,8 @@
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
               <a class="btn" href="mailto:h1y2g3o4@gmail.com">Email</a>
               <a class="btn" href="https://github.com/PetrukVovaAncientRus" target="_blank" rel="noopener">GitHub</a>
-              <a class="btn" href="https://www.linkedin.com/in/volodymyr-petruk-3aa214340/?isSelfProfile=true" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="btn" href="https://www.linkedin.com/in/volodymyr-petruk-3aa214340/?isSelfProfile=true"
+                target="_blank" rel="noopener">LinkedIn</a>
             </div>
           </div>
 
@@ -360,4 +524,5 @@
     }
   </script>
 </body>
+
 </html>
