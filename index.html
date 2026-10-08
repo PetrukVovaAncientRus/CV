@@ -468,7 +468,6 @@
     </footer>
   </div>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
@@ -485,10 +484,6 @@
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    emailjs.init({
-      publicKey: "vZHaE9BupmtxLWEvF"
-    });
-
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) e.target.classList.add('in-view');
@@ -502,24 +497,44 @@
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
+      const note = document.getElementById('note');
+      const submitBtn = e.target.querySelector('button[type="submit"]');
 
       if (!name || !email || !message) {
-        alert("Please fill in all fields.");
+        note.style.color = '#f87171';
+        note.textContent = 'Please fill in all fields.';
         return;
       }
 
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      note.style.color = 'var(--muted)';
+      note.textContent = '';
+
       try {
-        await emailjs.send("service_6iyzbvk", "template_kk3t59a", {
-          from_name: name,
-          from_email: email,
-          message: message
+        const res = await fetch('http://localhost:3000/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message }),
         });
 
-        alert("✅ Message sent successfully!");
-        document.getElementById('contact').reset();
+        const data = await res.json();
+
+        if (res.ok) {
+          note.style.color = '#10b981';
+          note.textContent = '✅ Message sent successfully!';
+          document.getElementById('contact').reset();
+        } else {
+          note.style.color = '#f87171';
+          note.textContent = '❌ ' + (data.error || 'Failed to send message.');
+        }
       } catch (error) {
         console.error(error);
-        alert("❌ Failed to send message. Please try again.");
+        note.style.color = '#f87171';
+        note.textContent = '❌ Server unavailable. Please email directly.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
       }
     }
   </script>
